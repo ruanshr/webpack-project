@@ -13,22 +13,22 @@ class MyPlugin {
     })
     // 如果事件是异步的，会带两个参数，第二个参数为回调函数，
     // 在插件处理完任务时需要调用回调函数通知webpack，才会进入下一个处理流程。
-    compiler.plugin('emit', (compilation, callback) => {
-      console.log('======2=======')
-      // 支持处理逻辑
-      // 处理完毕后执行 callback 以通知 Webpack
-      // 如果不执行 callback，运行流程将会一直卡在这不往下执行
-      // 修改或添加资源
-      compilation.assets['new-file.js'] = {
-        source() {
-          return 'var a=1'
-        },
-        size() {
-          return this.source().length
-        },
-      }
-      callback()
-    })
+    // compiler.plugin('emit', (compilation, callback) => {
+    //   console.log('======2=======')
+    //   // 支持处理逻辑
+    //   // 处理完毕后执行 callback 以通知 Webpack
+    //   // 如果不执行 callback，运行流程将会一直卡在这不往下执行
+    //   // 修改或添加资源
+    //   compilation.assets['new-file.js'] = {
+    //     source() {
+    //       return 'var a=1'
+    //     },
+    //     size() {
+    //       return this.source().length
+    //     },
+    //   }
+    //   callback()
+    // })
   }
 }
 
