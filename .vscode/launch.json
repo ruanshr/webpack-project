@@ -12,7 +12,7 @@
         "<node_internals>/**"
       ],
       "program": "${workspaceFolder}\\node_modules\\webpack\\bin\\webpack.js",
-      "args": ["--config", "webpack.config.js"],
+      "args": ["--config", "config/webpack.config.js"],
       "console": "integratedTerminal",
       "internalConsoleOptions": "neverOpen"
     }
