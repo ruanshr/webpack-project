@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+<<<<<<< HEAD
     "build": "webpack --config config/scripts/webpack.config.js",
     "externals": "webpack --config config/scripts/webpack.externals.config.js"
+=======
+    "build": "webpack --config config/webpack.config.js"
+>>>>>>> 8eda7beaa314f8d0fbdd1edca1041e88e39c0000
   },
   "keywords": [],
   "author": "",
@@ -13,6 +17,10 @@
   "dependencies": {},
   "devDependencies": {
     "html-webpack-plugin": "^4.5.1",
+<<<<<<< HEAD
+=======
+    "uglifyjs-webpack-plugin": "^2.2.0",
+>>>>>>> 8eda7beaa314f8d0fbdd1edca1041e88e39c0000
     "webpack": "^5.18.0",
     "webpack-cli": "^4.4.0"
   }
