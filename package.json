@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config config/scripts/webpack.config.js",
+    "externals": "webpack --config config/scripts/webpack.externals.config.js"
   },
   "keywords": [],
   "author": "",
