@@ -3,7 +3,7 @@ class CustomPlugin {
 
   apply(compiler) {
     compiler.hooks.emit.tap('CustomPlugin', (compliation) => {
-      debugger
+      console.log("33", compliation)
     })
   }
 }

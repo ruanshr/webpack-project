@@ -4,24 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "build": "webpack --config config/scripts/webpack.config.js",
-    "externals": "webpack --config config/scripts/webpack.externals.config.js"
-=======
-    "build": "webpack --config config/webpack.config.js"
->>>>>>> 8eda7beaa314f8d0fbdd1edca1041e88e39c0000
+    "build": "webpack --config config/webpack.config.js",
+    "build:main": "webpack --config config/webpack.config.main.js",
+    "serve:main": "webpack serve --config config/webpack.config.main.js --open",
+    "serve": "webpack serve --config config/webpack.config.serve.js --open"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "html-webpack-plugin": "^4.5.1",
-<<<<<<< HEAD
-=======
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.3.3",
     "uglifyjs-webpack-plugin": "^2.2.0",
->>>>>>> 8eda7beaa314f8d0fbdd1edca1041e88e39c0000
     "webpack": "^5.18.0",
-    "webpack-cli": "^4.4.0"
+    "webpack-cli": "^4.10.0",
+    "webpack-dev-server": "^4.15.1"
   }
 }

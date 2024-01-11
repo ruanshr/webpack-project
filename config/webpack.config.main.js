@@ -1,12 +1,10 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const StrictPlugin = require('./plugins/StrictPlugin')
-const CopyPlgin = require('./plugins/CopyPlugin')
 module.exports = {
   mode: 'development',
   entry: {
-    main: './src/main.ts'
+    main: './src/main.ts',
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
@@ -26,17 +24,15 @@ module.exports = {
     alias: {
       '@': path.resolve(__dirname, '../src') // 将 '@' 映射到 'src' 目录
     },
-    extensions: ['.ts', '.js']
+    extensions:['.ts', '.js']
   },
   plugins: [
-    new StrictPlugin(),
-    new CopyPlgin(),
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({ template: path.resolve(__dirname, './templates/index.html') })
   ],
   optimization: {
     splitChunks: {
-      chunks: 'all'
+      chunks: 'all',
     }
   },
   devServer: {
