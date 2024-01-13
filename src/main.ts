@@ -1,4 +1,7 @@
-import { prepare, run } from './pages/event'
+import { prepare, run } from './pages/chunk_download'
 
- 
-run();
+prepare()
+
+document.addEventListener('DOMContentLoaded', () => {
+  run()
+})

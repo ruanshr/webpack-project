@@ -20,6 +20,7 @@ export function run() {
   container.addEventListener(
     'click',
     (e) => {
+      e.stopPropagation()
       console.log('parent', '3', Date.now())
     },
     { capture: true }
@@ -37,11 +38,21 @@ export function run() {
   box.addEventListener(
     'click',
     (e) => {
-      e.stopPropagation()
+      
       console.log('child', 5)
     },
     {
       capture: true
+    }
+  )
+
+  box.addEventListener(
+    'click',
+    (e) => {
+      console.log('child', 7)
+    },
+    {
+      capture: false
     }
   )
 }

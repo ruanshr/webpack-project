@@ -26,11 +26,11 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: path.resolve(__dirname, './templates/event.html') })
+    new HtmlWebpackPlugin({ template: path.resolve(__dirname, './templates/float.html') })
   ],
   devServer: {
     static: {
-      directory: path.join(__dirname, '../dist')
+      directory: path.join(__dirname, '../static')
     },
     compress: true,
     port: 9000,
