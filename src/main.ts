@@ -1,7 +1,4 @@
-import { count, increment } from "./utils";
+import { prepare, run } from './pages/event'
 
-console.log(count)
-
-setTimeout(() => {
-  console.log(count, "--------", increment)
-})
+ 
+run();
