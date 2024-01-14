@@ -1,4 +1,4 @@
-import { prepare, run } from './pages/chunk_download'
+import { prepare, run } from './pages/event'
 
 prepare()
 

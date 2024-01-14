@@ -6,6 +6,7 @@ export function run() {
   container.addEventListener(
     'click',
     (e) => {
+      console.log('parent', e.target, e.currentTarget, e.eventPhase)
       console.log('parent', '1', Date.now())
     },
     { capture: true }
@@ -13,6 +14,7 @@ export function run() {
   container.addEventListener(
     'click',
     (e) => {
+      console.log('parent', e.target, e.currentTarget, e.eventPhase)
       console.log('parent', '2', Date.now())
     },
     { capture: false }
@@ -20,7 +22,8 @@ export function run() {
   container.addEventListener(
     'click',
     (e) => {
-      e.stopPropagation()
+      // e.stopPropagation()
+      console.log('parent', e.target, e.currentTarget, e.eventPhase)
       console.log('parent', '3', Date.now())
     },
     { capture: true }
@@ -28,7 +31,8 @@ export function run() {
   box.addEventListener(
     'click',
     (e) => {
-      console.log('child', 4)
+      console.log('child buttole', 4)
+      console.log('child', e.target, e.currentTarget, e.eventPhase)
     },
     {
       capture: false
@@ -38,7 +42,7 @@ export function run() {
   box.addEventListener(
     'click',
     (e) => {
-      
+      console.log('child capture', e.target, e.currentTarget, e.eventPhase)
       console.log('child', 5)
     },
     {
