@@ -26,7 +26,7 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: path.resolve(__dirname, './templates/float.html') })
+    new HtmlWebpackPlugin({ template: path.resolve(__dirname, './templates/chunk_download.html') })
   ],
   devServer: {
     static: {

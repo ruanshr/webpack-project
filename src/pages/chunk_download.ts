@@ -12,31 +12,30 @@ function startDownload() {
 }
 
 async function downloadFile(url, fileName) {
-  // const CHUNK_SIZE = 1024 * 1024 * 10 // 每次下载10MB
-  const CHUNK_SIZE = 1024 * 10
-  const response = await fetch(url, { method: 'head' })
-  const contentRange = response.headers.get('content-range')
-  const fileSize = contentRange
-    ? Number(contentRange.split('/')[1])
-    : Number(response.headers.get('content-length'))
-  const fileStream = []
-  let offset = 0
-
-  while (offset < fileSize) {
-    const end = Math.min(offset + CHUNK_SIZE, fileSize)
-    const options: RequestInit = {
-      headers: { Range: `bytes=${offset}-${end - 1}` },
-      mode: "no-cors",
-      referrerPolicy: "no-referrer",
+  const worker = new Worker(new URL('../worker/chunk.ts', import.meta.url), { type: "module" })
+  worker.addEventListener('message', (e) => {
+    const result = e.data
+    if (result.type === 'compose') {
+      const { fileStream, contentType } = result
+      const blob = new Blob(fileStream, { type: contentType })
+      downloadFile2(blob, fileName)
     }
-    const blob = await fetch(url, options).then((res) => res.blob())
-    fileStream.push(blob)
-    offset = end
-  }
+  })
 
-  const blob = new Blob(fileStream, { type: response.headers.get('content-type') })
+  worker.postMessage({ type: 'chunk', url })
 
-  downloadFile2(blob, fileName)
+  // while (offset < fileSize) {
+  //   const end = Math.min(offset + CHUNK_SIZE, fileSize)
+  //   const options: RequestInit = {
+  //     headers: { Range: `bytes=${offset}-${end - 1}` },
+  //     mode: "no-cors",
+  //     referrerPolicy: "no-referrer",
+  //   }
+  //   const blob = await fetch(url, options).then((res) => res.blob())
+  //   fileStream.push(blob)
+  //   offset = end
+  // }
+
   // const img = document.createElement('img')
 
   // img.src = URL.createObjectURL(blob)
